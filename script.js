@@ -65,10 +65,10 @@ function normaliseReg(str) {
  */
 function findStudent(name, regNo) {
   const normName = normalise(name);
-  const normReg  = normaliseReg(regNo);
+  const normReg = normaliseReg(regNo);
 
   return STUDENTS.find(s =>
-    normalise(s.name)   === normName &&
+    normalise(s.name) === normName &&
     normaliseReg(s.regNo) === normReg
   ) || null;
 }
@@ -77,22 +77,22 @@ function findStudent(name, regNo) {
 // ============================================================
 //  DOM REFERENCES
 // ============================================================
-const verifySection  = document.getElementById("verify-section");
-const resultSection  = document.getElementById("result-section");
+const verifySection = document.getElementById("verify-section");
+const resultSection = document.getElementById("result-section");
 
-const verifyForm     = document.getElementById("verify-form");
-const nameInput      = document.getElementById("student-name");
-const regInput       = document.getElementById("reg-number");
-const nameError      = document.getElementById("name-error");
-const regError       = document.getElementById("reg-error");
-const alertBox       = document.getElementById("alert-box");
-const verifyBtn      = document.getElementById("verify-btn");
+const verifyForm = document.getElementById("verify-form");
+const nameInput = document.getElementById("student-name");
+const regInput = document.getElementById("reg-number");
+const nameError = document.getElementById("name-error");
+const regError = document.getElementById("reg-error");
+const alertBox = document.getElementById("alert-box");
+const verifyBtn = document.getElementById("verify-btn");
 
-const resultNameEl   = document.getElementById("result-name-display");
-const resultRegEl    = document.getElementById("result-reg-display");
-const certImg        = document.getElementById("certificate-img");
-const downloadBtn    = document.getElementById("download-btn");
-const backBtn        = document.getElementById("back-btn");
+const resultNameEl = document.getElementById("result-name-display");
+const resultRegEl = document.getElementById("result-reg-display");
+const certImg = document.getElementById("certificate-img");
+const downloadBtn = document.getElementById("download-btn");
+const backBtn = document.getElementById("back-btn");
 
 
 // ============================================================
@@ -103,7 +103,7 @@ function validateFields() {
 
   // Clear previous errors
   nameError.textContent = "";
-  regError.textContent  = "";
+  regError.textContent = "";
   nameInput.classList.remove("error");
   regInput.classList.remove("error");
 
@@ -128,11 +128,11 @@ function validateFields() {
 // ============================================================
 function showAlert(message, type = "error") {
   alertBox.textContent = message;
-  alertBox.className   = `alert-box ${type} show`;
+  alertBox.className = `alert-box ${type} show`;
 }
 
 function hideAlert() {
-  alertBox.className   = "alert-box";
+  alertBox.className = "alert-box";
   alertBox.textContent = "";
 }
 
@@ -177,14 +177,14 @@ verifyForm.addEventListener("submit", function (e) {
     // ── SUCCESS ──────────────────────────────────────────────
     // Populate result page
     resultNameEl.textContent = student.name;
-    resultRegEl.textContent  = `Registration No: ${student.regNo}  •  ${student.certNo}`;
+    resultRegEl.textContent = `Registration No: ${student.regNo}  •  ${student.certNo}`;
 
     certImg.src = student.certificatePath;
     certImg.alt = `Certificate of ${student.name}`;
 
     // Wire download button
-    downloadBtn.href     = student.certificatePath;
-    downloadBtn.download = `Certificate_${normaliseReg(student.regNo)}.jpg`;
+    // downloadBtn.href     = student.certificatePath;
+    // downloadBtn.download = `Certificate_${normaliseReg(student.regNo)}.jpg`;
 
     // Navigate to result page
     showPage(resultSection);
