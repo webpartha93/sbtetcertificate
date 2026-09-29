@@ -20,7 +20,7 @@
 const STUDENTS = [
   {
     name: "PRABHAS KUMAR PUSTI",
-    regNo: "0033/26/11",
+    regNo: "0023/26/11",
     certificatePath: "certificates/0033_26_11.jpg",
     certNo: "DCN 230164",
     course: "Diploma in Civil Engineering"
